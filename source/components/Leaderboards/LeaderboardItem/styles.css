@@ -1,0 +1,133 @@
+.base {
+  composes: dark from '../../../traits/colors.css';
+  composes: py-eighth from '../../../traits/spacing.css';
+  composes: scale-xs from '../../../traits/type.css';
+  display: block;
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.position {
+  display: inline-block;
+  flex: 0 0 1.5rem;
+  max-width: 1.5rem;
+}
+
+.image {
+  display: inline-block;
+  flex: 0 0 2rem;
+  max-width: 2rem;
+}
+
+.image img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 1.5rem;
+  border: 2px solid;
+  vertical-align: middle;
+}
+
+.name {
+  display: inline-block;
+  flex: 1 1 5rem;
+  width: auto;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.charity {
+  display: block;
+  composes: scale-xxxs uppercase from '../../../traits/type.css';
+  opacity: 0.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.total {
+  display: inline-block;
+  flex: 0 0 4rem;
+  max-width: 4rem;
+  text-align: right
+}
+
+.tracker.finished .total {
+  color: var(--primary);
+}
+
+.tracker.selected.finished .total {
+  color: var(--light);
+}
+
+/* Tracker Theme */
+.tracker .position {
+  flex: 0 0 2.5rem;
+  max-width: 2.5rem;
+}
+
+.tracker .number {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  border-radius: 1.5rem;
+  text-align: center;
+}
+
+.tracker .total {
+  padding-right: 0.5rem;
+}
+
+.tracker.pos-1 .number {
+  color: var(--light);
+  background-color: var(--gold);
+}
+
+.tracker.pos-1 .image img {
+  border-color: var(--gold);
+}
+
+.tracker.pos-2 .number {
+  color: var(--light);
+  background-color: var(--silver);
+}
+
+.tracker.pos-2 .image img {
+  border-color: var(--silver);
+}
+
+.tracker.pos-3 .number {
+  color: var(--light);
+  background-color: var(--bronze);
+}
+
+.tracker.pos-3 .image img {
+  border-color: var(--bronze);
+}
+
+/* Selected */
+.tracker.selected {
+  color: var(--light);
+  background-color: var(--primary);
+}
+
+.tracker.selected .number {
+  background-color: transparent;
+}
+
+/* Home Theme */
+.home {
+  color: var(--light);
+}
+
+.home .number:after {
+  content: '.';
+}

@@ -1,0 +1,33 @@
+.metrics {
+  composes: mt-1 from '../../traits/spacing.css';
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section {
+  flex: 0 0 50%;
+  composes: py-quarter from '../../traits/spacing.css';
+}
+
+.total {
+  composes: heading scale-xxl bold from '../../traits/type.css';
+  line-height: 1.2;
+}
+
+.metric {
+  composes: uppercase heading scale-xs from '../../traits/type.css';
+}
+
+.countdown {
+  composes: mt-1 pt-half from '../../traits/spacing.css';
+  composes: uppercase heading bold scale-sm from '../../traits/type.css';
+  border-top: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.countdown div {
+  display: inline-block;
+}
+
+.countdown :global(.CountDown__days) {
+  margin-right: 0.25em;
+}

@@ -1,0 +1,35 @@
+.hidden {
+  overflow: hidden;
+  position: absolute!important;
+  clip: rect(1px,1px,1px,1px);
+  padding: 0!important;
+  border: 0!important;
+  height: 1px!important;
+  width: 1px!important;
+}
+
+.contain {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contain-lg {
+  composes: contain;
+  max-width: 65rem;
+}
+
+.contain-md {
+  composes: contain;
+  max-width: 55rem;
+}
+
+.contain-sm {
+  composes: contain;
+  max-width: 45rem;
+}
+
+.contain-xs {
+  composes: contain;
+  max-width: 40rem;
+}

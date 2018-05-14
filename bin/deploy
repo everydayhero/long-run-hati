@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -eu
+
+ENVIRONMENT=${1:-}
+
+if [ ! $ENVIRONMENT ]; then
+  echo "No environment set"
+  exit 1
+fi
+
+git config --global user.name "BuildKite"
+git config --global user.email buildkite@everydayhero.com
+
+mkdir -p /root/.ssh
+ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+
+npm install
+npm run deploy:$ENVIRONMENT

@@ -1,0 +1,20 @@
+.base {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc(var(--rhythm) * -.25rem);
+  position: relative;
+  z-index: 3;
+}
+
+.base > * {
+  width: 33.3333%;
+  padding: calc(var(--rhythm) * .25rem);
+  margin-bottom: calc(var(--rhythm) * .25rem);
+}
+
+@media (min-width: 37.5em) {
+  .base > * {
+    width: 25%;
+    padding: calc(var(--rhythm) * .25rem);
+  }
+}

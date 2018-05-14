@@ -1,0 +1,84 @@
+.base {
+  text-align: center;
+  background-color: #fff;
+}
+
+.social {
+  composes: py-2 from '../../traits/spacing.css';
+}
+
+.hashTag {
+  composes: light on-primary from '../../traits/colors.css';
+  composes: px-quarter from '../../traits/spacing.css';
+}
+
+.icons > * + * {
+  margin-left: calc(var(--rhythm) * .5rem);
+}
+
+.socialLink {
+  composes: light from '../../traits/colors.css';
+  composes: p-quarter from '../../traits/spacing.css';
+  composes: scale-lg from '../../traits/type.css';
+  border-radius: 6rem;
+  height: calc(var(--rhythm) * 1.5rem);
+  width: calc(var(--rhythm) * 1.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+}
+
+.instagram {
+  composes: socialLink;
+  background-color: #E4405F;
+}
+
+.facebook {
+  composes: socialLink;
+  background-color: #3B5998;
+}
+
+.twitter {
+  composes: socialLink;
+  background-color: #55ACEE;
+}
+
+.icons {
+  composes: mt-half from '../../traits/spacing.css';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  composes: heading scale-xl x-bold from '../../traits/type.css';
+}
+
+.logo {
+  composes: ml-half from '../../traits/spacing.css';
+  display: inline-block;
+  vertical-align: middle;
+  width: auto;
+  margin-top: 0;
+}
+
+.bottom {
+  composes: pb-2 from '../../traits/spacing.css';
+  composes: light from '../../traits/colors.css';
+  padding-top: calc(var(--rhythm) * 8rem);
+  background-image: url('/layouts/Footer/mountains.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+
+.links {
+  composes: mt-half from '../../traits/spacing.css';
+  composes: scale-sm from '../../traits/type.css';
+  opacity: .7;
+}
+
+.links > * + * {
+  margin-left: calc(var(--rhythm) * .5rem)
+}

@@ -1,0 +1,8 @@
+node_modules
+dist
+browserify-cache.json
+.dev
+.server
+npm-debug.log
+aws.json
+.env

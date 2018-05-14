@@ -1,0 +1,9 @@
+.base {
+  composes: scale-xxl x-bold uppercase heading from '../../traits/type.css';
+  composes: primary on-light from '../../traits/colors.css';
+  margin-bottom: calc(var(--rhythm) * .75rem);
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}

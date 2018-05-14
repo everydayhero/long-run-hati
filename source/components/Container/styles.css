@@ -1,0 +1,29 @@
+.base {
+  composes: contain from '../../traits/layout.css';
+  position: relative;
+}
+
+.padded {
+  composes: base;
+  composes: container from '../../traits/spacing.css'
+}
+
+.xs {
+  composes: padded;
+  composes: contain-xs from '../../traits/layout.css';
+}
+
+.sm {
+  composes: padded;
+  composes: contain-sm from '../../traits/layout.css';
+}
+
+.md {
+  composes: padded;
+  composes: contain-md from '../../traits/layout.css';
+}
+
+.lg {
+  composes: padded;
+  composes: contain-lg from '../../traits/layout.css';
+}

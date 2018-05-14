@@ -1,0 +1,29 @@
+---
+steps:
+
+  - wait
+
+  - name: ":nodejs: Test It"
+    command: docker-compose run --rm build bin/test
+    agents:
+      queue: elastic
+
+  - wait
+
+  - name: ":shipit: Ship It - Staging"
+    command: docker-compose run --rm build bin/deploy $ENVIRONMENT
+    branches: master staging/*
+    env:
+      ENVIRONMENT: staging
+    agents:
+      queue: elastic
+
+  - manual
+
+  - name: ":shipit: Ship It - Production"
+    command: docker-compose run --rm build bin/deploy $ENVIRONMENT
+    branches: master
+    env:
+      ENVIRONMENT: prod
+    agents:
+      queue: elastic

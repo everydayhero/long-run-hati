@@ -1,0 +1,53 @@
+.base {
+  composes: mb-2 from '../../traits/spacing.css';
+}
+
+.content {
+  position: relative;
+}
+
+.content > *:first-child {
+  position: absolute;
+  top: calc(var(--rhythm) * -.9rem);
+}
+
+.textContent {
+  composes: light from '../../traits/colors.css';
+  composes: pt-1 from '../../traits/spacing.css';
+  width: auto;
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 58em) {
+  .content:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: -100%;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    background-color: var(--primary);
+  }
+}
+
+@media (min-width: 58em) {
+  .base {
+    display: flex;
+    margin-bottom: calc(var(--rhythm) * 2rem)
+  }
+  .base > * {
+    width: 50%;
+  }
+  .base:before {
+    content: "";
+    position: absolute;
+    z-index: 2;
+    left: -100%;
+    top: 0;
+    right: -100%;
+    bottom: 0;
+    background-color: var(--primary);
+  }
+}

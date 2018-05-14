@@ -1,0 +1,69 @@
+.base {
+  composes: light on-primary from '../../traits/colors.css';
+}
+
+.inner {
+  position: relative;
+  composes: contain-md contain from '../../traits/layout.css';
+  composes: container from '../../traits/spacing.css';
+}
+
+.stats {
+  composes: py-1 from '../../traits/spacing.css';
+}
+
+.banner {
+  display: flex;
+  align-items: stretch;
+}
+
+.eventStatus {
+  display: inline-block;
+  composes: primary on-light from '../../traits/colors.css';
+  composes: uppercase scale-sm heading bold from '../../traits/type.css';
+  padding: calc(var(--rhythm) * .333rem) calc(var(--rhythm) * .5rem);
+}
+
+.eventStatusText {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+
+.flasher {
+  display: inline-block;
+  vertical-align: middle;
+  width: calc(var(--rhythm) * 0.5em);
+  height: calc(var(--rhythm) * 0.5em);
+  border-radius: 50%;
+  background-color: #FF6755;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.map {
+  height: calc(var(--rhythm) * 12.5rem);
+  pointer-events: none;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  30%, 60% {
+    opacity: 1;
+  }
+}
+
+@media (min-width: 42.5em) {
+  .inner {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .inner > * {
+    flex: 0 0 50%;
+  }
+}

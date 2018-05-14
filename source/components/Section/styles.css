@@ -1,0 +1,18 @@
+.base {
+}
+
+.grey {
+  composes: base;
+  background-color: #ececec;
+}
+
+.primary {
+  composes: base;
+  composes: light on-primary from '../../traits/colors.css';
+}
+
+.higher {
+  composes: base;
+  position: relative;
+  z-index: 3;
+}

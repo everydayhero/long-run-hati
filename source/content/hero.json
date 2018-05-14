@@ -1,0 +1,12 @@
+{
+  "logo_url": "/components/Logo/negative.svg",
+  "tagline": {
+    "intro": "Virtually Cycle",
+    "main": "Across Australia for Charity",
+    "date": "September 2016"
+  },
+  "call_to_action": {
+    "text": "Register",
+    "href": "https://greatuscrossing.everydayhero.com/us/get-started"
+  }
+}

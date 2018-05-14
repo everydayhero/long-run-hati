@@ -1,0 +1,17 @@
+.base {
+  composes: uppercase heading from '../../../traits/type.css';
+}
+
+.sm {
+  composes: scale-xs from '../../../traits/type.css';
+}
+
+.md {
+  composes: scale-md from '../../../traits/type.css';
+}
+
+.light {}
+
+.primary {
+  composes: mb-half from '../../../traits/spacing.css';
+}

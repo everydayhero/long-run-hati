@@ -1,0 +1,33 @@
+.tab {
+  composes: py-half px-quarter from '../../../traits/spacing.css';
+  composes: align-center uppercase heading scale-xs from '../../../traits/type.css';
+  cursor: pointer;
+}
+
+.tab.tabCount2 {
+  flex: 0 0 50%;
+}
+
+.tab.tabCount3 {
+  flex: 0 0 33.3%;
+}
+
+.tabSelected {
+  background-color: var(--primaryShade2);
+}
+
+@media (min-width: 50em) {
+  .tab {
+    text-align: left;
+  }
+
+  .tab:nth-child(2n) {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .expand {
+    background-color: transparent;
+    padding-left: calc(var(--rhythm) * 1rem);
+    padding-right: calc(var(--rhythm) * 1rem);
+  }
+}

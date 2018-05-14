@@ -1,0 +1,13 @@
+.tabContent {
+  display: none;
+}
+
+.tabContentSelected {
+  display: block;
+}
+
+@media (min-width: 50em) {
+  .expand {
+    display: block;
+  }
+}

@@ -1,0 +1,12 @@
+.base {
+  composes: scale-md from '../../traits/type.css';
+  composes: py-half from '../../traits/spacing.css';
+}
+
+.center {
+  composes: align-center from '../../traits/type.css';
+}
+
+.left {
+  composes: align-left from '../../traits/type.css';
+}

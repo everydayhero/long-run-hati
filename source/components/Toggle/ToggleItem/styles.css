@@ -1,0 +1,37 @@
+.item {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.light {
+  composes: solid-light from '../../../traits/borders.css';
+  composes: py-quarter px-half from '../../../traits/spacing.css';
+  composes: scale-sm bold from '../../../traits/type.css';
+}
+
+.light:first-child {
+  border-right: none;
+}
+
+.light:last-child {
+  border-left: none;
+}
+
+.light.selected {
+  background-color: var(--light);
+  color: var(--primary);
+}
+
+.primary {
+  composes: bold from '../../../traits/type.css';
+  composes: py-eighth mx-quarter from '../../../traits/spacing.css';
+}
+
+.primary:first-child {
+  margin-left: 0;
+}
+
+.primary.selected {
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}

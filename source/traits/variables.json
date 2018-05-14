@@ -1,0 +1,17 @@
+{
+  "rhythm": 1.5,
+  "primary": "#1A88CC",
+  "primaryDark": "#127EB2",
+  "primaryShade1": "#1982C3",
+  "primaryShade2": "#278CC8",
+  "light": "#FFFFFF",
+  "dark": "#333333",
+  "grey": "#EEEEEE",
+  "lightGrey": "#F4F4F4",
+  "lighterGrey": "#999",
+  "gold": "#F0B82B",
+  "silver": "#909090",
+  "bronze": "#F88800",
+  "sansSerif": "'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+  "heading": "'Raleway', 'Arial Black', sans-serif"
+}

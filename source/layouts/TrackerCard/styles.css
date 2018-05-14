@@ -1,0 +1,15 @@
+.card {
+  position: absolute;
+  bottom: 2.75em;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 50em) {
+  .card {
+    right: auto;
+    left: 1em;
+    bottom: 1em;
+    min-width: 30em;
+  }
+}

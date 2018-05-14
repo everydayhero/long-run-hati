@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: var(--primaryShade1);
+}
+
+.inner {
+  composes: contain contain-md from '../../../traits/layout.css';
+  composes: container from '../../../traits/spacing.css';
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 0 calc(var(--rhythm) * -1em);
+}

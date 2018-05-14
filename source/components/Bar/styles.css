@@ -1,0 +1,26 @@
+.bar {
+  composes: on-light from '../../traits/colors.css';
+  composes: p-half from '../../traits/spacing.css';
+  composes: scale-xs uppercase bold heading from '../../traits/type.css';
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid var(--grey);
+}
+
+.bar a i:first-child {
+  margin-right: 0.5em
+}
+
+.bar a i:last-child {
+  margin-left: 0.5em
+}
+
+@media (min-width: 50em) {
+  .bar {
+    border-top: none;
+  }
+}

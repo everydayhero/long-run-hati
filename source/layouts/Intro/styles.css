@@ -1,0 +1,13 @@
+.base {
+  composes: contain-md from '../../traits/layout.css';
+  composes: py-2 container from '../../traits/spacing.css';
+  position: relative;
+}
+
+.text {
+  composes: on-light from '../../traits/colors.css';
+  composes: contain-sm from '../../traits/layout.css';
+  composes: py-half from '../../traits/spacing.css';
+  position: relative;
+  z-index: 1;
+}

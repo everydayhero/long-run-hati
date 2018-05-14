@@ -1,0 +1,37 @@
+.base {
+  composes: light from '../../traits/colors.css';
+  background-image: url('/layouts/HomeLeaderboards/background.jpg');
+  background-size: cover;
+}
+
+.inner {
+  composes: contain-md contain from '../../traits/layout.css';
+  composes: container py-1 from '../../traits/spacing.css';
+  composes: py-1 from '../../traits/spacing.css';
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.top > div {
+  padding: calc(var(--rhythm) * 0.25rem) 0;
+}
+
+.topTitle {
+  composes: uppercase heading scale-xxxl x-bold from '../../traits/type.css';
+  line-height: 1;
+}
+
+.tip {
+  composes: pb-half from '../../traits/spacing.css';
+  composes: scale-xs from '../../traits/type.css';
+  opacity: 0.7;
+}
+
+.leaderboards {
+  background-color: rgba(0, 0, 0, 0.5);
+}

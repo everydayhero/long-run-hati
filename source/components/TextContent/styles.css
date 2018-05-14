@@ -1,0 +1,16 @@
+.base {
+  margin-top: 0;
+}
+
+.base strong {
+  font-weight: bold;
+}
+
+.base > * + * {
+  margin-top: calc(var(--rhythm) * .75rem);
+}
+
+.alignCenter {
+  composes: base;
+  text-align: center;
+}

@@ -1,0 +1,6 @@
+.base {
+  composes: py-1 from '../../traits/spacing.css';
+}
+
+.steps {
+}

@@ -1,0 +1,24 @@
+.base {
+  margin-bottom: 0;
+}
+
+.loose   {
+  composes: base;
+  margin-left: -3rem;
+  margin-right: -3rem;
+}
+.default {
+  composes: base;
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+}
+.tight {
+  composes: base;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+.none {
+  composes: base;
+  margin-left: 0;
+  margin-right: 0;
+}

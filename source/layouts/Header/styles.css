@@ -1,0 +1,9 @@
+.base {
+  composes: contain contain-md from '../../traits/layout.css';
+  composes: py-half container from '../../traits/spacing.css';
+  display: flex;
+}
+
+.cta {
+  margin-left: auto;
+}

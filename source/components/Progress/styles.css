@@ -1,0 +1,40 @@
+.progress {
+  composes: py-eighth from '../../traits/spacing.css';
+}
+
+.totals {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.current {
+  composes: primary from '../../traits/colors.css';
+  composes: scale-sm bold from '../../traits/type.css'
+}
+
+.target {
+  composes: scale-xs bold from '../../traits/type.css'
+}
+
+.bar {
+  position: relative;
+}
+
+.bar:before {
+  content: '';
+  display: block;
+  height: 5px;
+  background-color: var(--primary);
+  opacity: 0.3;
+}
+
+.barProgress {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 5px;
+  max-width: 100%;
+  background-color: var(--primary);
+}

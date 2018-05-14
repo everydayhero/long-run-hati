@@ -1,0 +1,73 @@
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.textContent {
+  width: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.route {
+  position: relative;
+}
+
+.route:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 50%;
+  background-color: var(--primary);
+  z-index: 1;
+}
+
+.map {
+  composes: contain contain-xs from '../../traits/layout.css';
+  composes: py-2 container from '../../traits/spacing.css';
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 37.5em) {
+  .textContent {
+    padding-left: calc(var(--rhythm) * 1rem);
+    padding-right: calc(var(--rhythm) * 1rem);
+    margin-left: calc(var(--rhythm) * -1rem);
+    margin-right: calc(var(--rhythm) * -1rem);
+  }
+}
+
+@media (min-width: 37.5em) and (max-width: 58em) {
+  .textContent {
+    padding-left: calc(var(--rhythm) * 2rem);
+    padding-right: calc(var(--rhythm) * 2rem);
+    margin-left: calc(var(--rhythm) * -2rem);
+    margin-right: calc(var(--rhythm) * -2rem);
+  }
+}
+
+@media (max-width: 58em) {
+  .content {
+    color: var(--light);
+  }
+  .textContent {
+    background-color: var(--primary);
+    padding-top: calc(var(--rhythm) * 1rem);
+    padding-bottom: calc(var(--rhythm) * 1rem);
+    margin-top: calc(var(--rhythm) * -1rem);
+  }
+}
+
+@media (min-width: 58em) {
+  .base {
+    display: flex;
+    margin-bottom: calc(var(--rhythm) * 2rem)
+  }
+  .base > * {
+    width: 50%;
+  }
+}

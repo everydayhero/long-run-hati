@@ -1,0 +1,16 @@
+.solid-2 {
+  border: 2px solid #1A88CC;
+}
+
+.solid-dark {
+  border: 2px solid #127EB2;
+}
+
+.solid-light {
+  border: 2px solid #FFF;
+}
+
+.dashed {
+  border-width: 6px;
+  border-style: dashed;
+}

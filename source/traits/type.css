@@ -1,0 +1,100 @@
+/* Based on a minor-third modular scale. i.e. 1.2 */
+
+.scale-xxxs {
+  font-size: 0.482rem;
+}
+
+.scale-xxs {
+  font-size: 0.579rem;
+}
+
+.scale-xs {
+  font-size: 0.694rem;
+}
+
+.scale-sm {
+  font-size: 0.833rem;
+}
+
+.scale-md {
+  font-size: 1rem;
+}
+
+.scale-lg {
+  font-size: 1.2rem;
+}
+
+.scale-xl {
+  font-size: 1.44rem;
+}
+
+.scale-xxl {
+  font-size: 1.728rem;
+}
+
+.scale-xxxl {
+  font-size: 2.074rem;
+}
+
+.scale-xxxxl {
+  font-size: 2.488rem;
+}
+
+.scale-xxxxxl {
+  font-size: 2.986rem;
+}
+
+.max-length {
+  max-width: 32em;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.x-bold {
+  font-weight: 900;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.sansserif {
+  font-family: var(--sansSerif);
+}
+
+.heading {
+  font-family: var(--heading);
+}
+
+.link {
+  composes: primary from './colors.css';
+  cursor: pointer;
+  opacity: .8;
+}
+
+.link:hover,
+.link:focus {
+  opacity: 1;
+}
+
+.link:active {
+  color: inherit;
+}

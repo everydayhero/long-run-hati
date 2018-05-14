@@ -1,0 +1,41 @@
+.base {
+  composes: contain contain-md from '../../traits/layout.css';
+  composes: pb-1 container from '../../traits/spacing.css';
+  margin-top: auto;
+  margin-bottom: auto;
+  flex-shrink: 1;
+}
+
+.intro,
+.main,
+.date {
+  composes: uppercase heading x-bold from '../../traits/type.css';
+}
+
+.intro,
+.main {
+  line-height: 1;
+}
+
+.main,
+.date {
+  composes: mt-half from '../../traits/spacing.css';
+}
+
+.intro {
+  composes: primary from '../../traits/colors.css';
+  composes: scale-lg from '../../traits/type.css';
+}
+
+.main {
+  composes: light from '../../traits/colors.css';
+  composes: scale-xxl from '../../traits/type.css';
+  max-width: 12em;
+}
+
+.date {
+  composes: dark on-primary from '../../traits/colors.css';
+  composes: px-quarter from '../../traits/spacing.css';
+  composes: scale-md from '../../traits/type.css';
+  display: inline-block;
+}

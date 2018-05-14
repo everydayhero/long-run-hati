@@ -1,0 +1,62 @@
+.base {
+  composes: contain-xs from '../../traits/layout.css';
+  position: relative;
+}
+
+.inner {
+  composes: py-1 from '../../traits/spacing.css';
+  display: flex;
+  align-items: center;
+}
+
+.inner {
+  margin-left: calc(var(--rhythm) * -.5rem);
+  margin-right: calc(var(--rhythm) * -.5rem);
+}
+
+.innerAlt {
+  composes: inner;
+  flex-direction: row-reverse;
+}
+
+.circle,
+.content {
+  position: relative;
+  z-index: 3;
+  padding-left: calc(var(--rhythm) * .5rem);
+  padding-right: calc(var(--rhythm) * .5rem);
+}
+
+.circle {
+  position: relative;
+  width: calc(var(--rhythm) * 5rem);
+  flex-shrink: 0;
+}
+
+.image {
+  border-radius: 50%;
+}
+
+.circle i {
+  margin: 0;
+  display: block;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.488em;
+}
+
+.content > *:first-child {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 1.2rem;
+  margin-bottom: calc(var(--rhythm) * .5rem);
+}
+
+@media (min-width: 37.5em) {
+  .circle {
+    width: calc(var(--rhythm) * 7rem);
+  }
+}

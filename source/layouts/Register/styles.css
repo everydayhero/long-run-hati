@@ -1,0 +1,10 @@
+.base {
+  composes: py-3 from '../../traits/spacing.css';
+  composes: on-grey from '../../traits/colors.css';
+  text-align: center;
+  position: relative;
+}
+
+.donateText {
+  composes: mt-half from '../../traits/spacing.css';
+}
