@@ -12,7 +12,6 @@
   },
   "scripts": {
     "build:setup": "rm -rf .dev/* dist/* && mkdir -p dist .dev",
-    "build:prod": "npm run build:setup && ENV_FILE=.env.production gulp build",
 
     "build:staging": "npm run build:setup && ENV_FILE=.env.staging gulp build",
 
@@ -24,7 +23,6 @@
 
     "deploy:staging": "npm run build:staging && gh-pages -d dist",
 
-    "deploy:prod": "npm run build:prod && S3_TARGETS='http://thelongrunforhaiti.everydayhero.do/' gulp deploy:prod"
   },
   "babel": {
     "presets": [
