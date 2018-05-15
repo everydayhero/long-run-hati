@@ -1,17 +1,11 @@
 {
   "rhythm": 1.5,
-  "primary": "#1A88CC",
-  "primaryDark": "#127EB2",
-  "primaryShade1": "#1982C3",
-  "primaryShade2": "#278CC8",
+  "primary": "#FF6600",
+  "secondary": "#2B2D42",
+  "tertiary": "#D1202A",
   "light": "#FFFFFF",
-  "dark": "#333333",
-  "grey": "#EEEEEE",
-  "lightGrey": "#F4F4F4",
-  "lighterGrey": "#999",
-  "gold": "#F0B82B",
-  "silver": "#909090",
-  "bronze": "#F88800",
-  "sansSerif": "'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
-  "heading": "'Raleway', 'Arial Black', sans-serif"
+  "dark": "#2B2D42",
+  "grey": "#EDF2F4",
+  "sansSerif": "'Helvetica Neue', 'Helvetica', 'Geneva', sans-serif",
+  "heading": "'Helvetica Neue', 'Helvetica', 'Geneva', sans-serif"
 }

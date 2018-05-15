@@ -4,6 +4,7 @@ import { receivePageFailure } from '../'
 
 describe('receivePageFailure', () => {
   const mockDispatch = sinon.spy()
+
   receivePageFailure(mockDispatch)('/example', 'Example error')
   const action = mockDispatch.getCall(0).args[0]
 

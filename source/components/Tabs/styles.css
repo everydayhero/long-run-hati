@@ -1,0 +1,53 @@
+.tabs {
+  display: flex;
+  align-items: flex-start;
+}
+
+.tab {
+  composes: py-quarter px-half from '../../traits/spacing.css';
+  composes: align-center scale-sm bold smooth from '../../traits/type.css';
+  cursor: pointer;
+}
+
+.tabIcon {
+  composes: align-center scale-xxxs from '../../traits/type.css';
+  display: inline-block;
+  height: calc(var(--rhythm) * 1rem);
+  line-height: 20px;
+  width: calc(var(--rhythm) * 1rem);
+  border-radius: calc(var(--rhythm) * 1rem);
+  border: 2px solid;
+}
+
+.tabSelected {
+  composes: light on-primary from '../../traits/colors.css';
+}
+
+.tabContent {
+  display: none;
+}
+
+.tabContentSelected {
+  display: block;
+}
+
+@media (min-width: 50em) {
+  .expandDesktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .expandDesktop .tabs {
+    display: none;
+  }
+
+  .expandDesktop .tabContent {
+    display: block;
+  }
+
+  .expandDesktop > * {
+    flex: 0 0 30%;
+    max-width: 20rem;
+  }
+}

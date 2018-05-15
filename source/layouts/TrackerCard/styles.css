@@ -10,6 +10,10 @@
     right: auto;
     left: 1em;
     bottom: 1em;
-    min-width: 30em;
+    min-width: 25em;
+  }
+
+  .waypointCard {
+    min-width: 10em;
   }
 }

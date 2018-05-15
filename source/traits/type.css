@@ -49,7 +49,7 @@
 }
 
 .regular {
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .bold {
@@ -86,6 +86,7 @@
 
 .link {
   composes: primary from './colors.css';
+  text-decoration: none;
   cursor: pointer;
   opacity: .8;
 }
@@ -97,4 +98,8 @@
 
 .link:active {
   color: inherit;
+}
+
+.smooth {
+  -webkit-font-smoothing: antialiased;
 }

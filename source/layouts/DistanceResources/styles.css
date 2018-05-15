@@ -1,0 +1,61 @@
+.root {
+  composes: mt-3 from '../../traits/spacing.css';
+  background-size: cover;
+}
+
+.container {
+  padding: 0;
+}
+
+.content {
+  composes: on-dark from '../../traits/colors.css';
+  composes: py-1 from '../../traits/spacing.css';
+  opacity: .9;
+}
+
+.heading {
+  composes: bold scale-xxl from '../../traits/type.css';
+  composes: mb-half from '../../traits/spacing.css';
+  composes: light from '../../traits/colors.css';
+}
+
+.list {
+  composes: primary from '../../traits/colors.css';
+}
+
+.item {
+  list-style: disc;
+  composes: ml-1 from '../../traits/spacing.css';
+}
+
+.link {
+  composes: bold link from '../../traits/type.css';
+}
+
+@media (max-width: 37.5em) {
+  .root {
+    padding-top: 9rem;
+    background-position: right top;
+  }
+  .content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 37.5em) {
+  .root {
+    display: flex;
+    align-items: stretch;
+    min-height: 12rem;
+    background-position: right center;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+  }
+  .content {
+    padding: 3rem;
+    width: 50%;
+  }
+}

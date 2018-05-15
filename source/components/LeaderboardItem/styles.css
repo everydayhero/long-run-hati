@@ -1,0 +1,53 @@
+.item {
+  composes: smooth scale-sm from '../../traits/type.css';
+}
+
+.position {
+  display: inline-block;
+  flex: 0 0 2em;
+  max-width: 2em;
+  composes: bold from '../../traits/type.css';
+}
+
+.image {
+  display: inline-block;
+  flex: 0 0 2.5em;
+  max-width: 2.5em;
+}
+
+.image img {
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 1.5em;
+  border: 2px solid;
+}
+
+.name {
+  display: inline-block;
+  flex: 1 1 5em;
+  width: auto;
+}
+
+.total {
+  display: inline-block;
+  flex: 0 0 4em;
+  max-width: 4em;
+  composes: align-right from '../../traits/type.css';
+}
+
+.link {
+  display: block;
+  display: flex;
+  flex: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: calc(var(--rhythm) * 0.25em) calc(var(--rhythm) * 0.25em);
+}
+
+.selected {
+  composes: light on-primary from '../../traits/colors.css';
+}
+
+.hidden {
+  display: none;
+}

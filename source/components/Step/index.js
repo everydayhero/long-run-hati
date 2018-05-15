@@ -1,24 +1,24 @@
 import React from 'react'
-import Icon from '../Icon'
-import Path from '../Path'
+
 import styles from './styles.css'
 
 export default ({
-  image,
-  alt,
-  final,
-  icon,
+  className,
+  count = '',
+  image = {},
+  heading = '',
+  body = '',
   ...props
 }) => (
-  <div className={styles.base}>
-    <div className={alt ? styles.innerAlt : styles.inner}>
-      <div className={styles.circle}>
-        <img className={styles.image} src={image} />
-        <Icon icon={icon} />
-      </div>
-      <div className={styles.content} {...props} />
-      {alt ? <Path side='stepAlt' /> : <Path side='step' />}
-      {final && <Path side='stepFinal' />}
+  <div className={`${styles.base} ${className}`} {...props}>
+    <div className={styles.hero}>
+      <div className={styles.count}>{count}</div>
+      <img className={styles.image} src={image.url || ''} />
+    </div>
+    <div className={styles.content}>
+      <h3 className={styles.heading}>{heading}</h3>
+      <div className={styles.body}
+        dangerouslySetInnerHTML={{ __html: body }} />
     </div>
   </div>
 )

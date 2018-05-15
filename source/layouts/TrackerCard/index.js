@@ -1,25 +1,40 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { find } from 'lodash'
 import Card from '../../components/Card'
+import WaypointCard from '../../components/WaypointCard'
 import styles from './styles.css'
 
-const findTeam = (teams, id) => id && find(teams, o => o.id.toString() === id)
+class TrackerCard extends React.Component {
 
-const TrackerCard = ({
-  query = {},
-  metrics = {}
-}) => {
-  let team = metrics.teams && findTeam(metrics.teams, query.team)
+  renderTourer (team) {
+    return (
+      <Card
+        className={styles.card}
+        team={team}
+      />
+    )
+  }
 
-  return team ? (
-    <Card
-      className={styles.card}
-      team={team}
-    />
-  ) : <span />
+  renderWaypoint (waypoint) {
+    return (
+      <WaypointCard
+        className={`${styles.card} ${styles.waypointCard}`}
+        waypoint={waypoint}
+      />
+    )
+  }
+
+  render () {
+    let { selected, waypoint } = this.props
+    return selected ? this.renderTourer(selected) : (
+      waypoint ? this.renderWaypoint(waypoint) : <span />
+    )
+  }
 }
 
-const mapStateToProps = ({ metrics }) => ({ metrics })
+const mapStateToProps = state => ({
+  selected: state.teams.selected,
+  waypoint: state.waypoints.selected
+})
 
 export default connect(mapStateToProps)(TrackerCard)

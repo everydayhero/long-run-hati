@@ -1,17 +1,19 @@
 import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
 
-import charities from './charities'
 import pages from './pages'
-import campaign from './campaign'
-import metrics from './metrics'
-import leaderboards from './leaderboards'
-import tracker from './tracker'
+import calculator from './calculator'
+import { reducer as map } from 'tour-tracker'
+import waypoints from './waypoints'
+import teams from './teams'
+import individuals from './individuals'
 
 export default combineReducers({
-  campaign,
-  charities,
   pages,
-  metrics,
-  leaderboards,
-  tracker
+  calculator,
+  map,
+  waypoints,
+  teams,
+  individuals,
+  routing: routerReducer
 })

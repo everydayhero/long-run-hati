@@ -1,26 +1,66 @@
 import React from 'react'
-import Button from '../../components/Button'
-import SearchModal from '../SearchModal'
 
+import Container from '../../components/Container'
+import Button from '../../components/Button'
+import PageSearchModal from 'edh-widgets/src/components/search/PageSearchModal'
 import styles from './styles.css'
 
-export default ({
-  pageSearchModal = false,
-  charitySearchModal = false,
-  currentPage = '',
-  registerLink = false,
-  charityIds = []
-}) => (
-  <header className={styles.base}>
-    <div className={styles.cta}>
-      <Button theme='primaryOutline' to='https://supporter.help-au.everydayhero.com/hc/en-us/sections/200835326-Great-Southern-Crossing-Charity-Challenge?_ga=1.141032498.1436759241.1466554068'>
-        Help
-      </Button>
-      <Button theme='primary' to={`${currentPage}/?pageSearchModal`}>
-        Support a Rider
-      </Button>
-    </div>
-    {pageSearchModal && <SearchModal search='page' currentPage={currentPage} campaignUid={process.env.CAMPAIGN_ID} />}
-    {charitySearchModal && <SearchModal search='charity' currentPage={currentPage} campaignUid={process.env.CAMPAIGN_ID} charityUids={charityIds} />}
-  </header>
-)
+export default class extends React.Component {
+  constructor () {
+    super()
+    this.state = {
+      pageSearchActive: false
+    }
+  }
+
+  render () {
+    const {
+      logo = {
+        url: '',
+        alt: ''
+      },
+      hero = {
+        url: ''
+      },
+      tagline = '',
+      lead = '',
+      signUpButton = '',
+      donateButton = '',
+      loginButton = '',
+      findFriendButton = ''
+      } = this.props
+    return (
+      <header className={styles.base} style={{backgroundImage: `url(${hero.url})`}}>
+        <Container className={styles.container}>
+          <div className={styles.logo}>
+            <img src={logo.url} alt={logo.alt} />
+          </div>
+          <div className={styles.leadin}>
+            <div className={styles.tagline}>
+              {tagline.substr(0, tagline.length - 7).split(' ').map((word, i) => (
+                <div key={i}>{word}</div>
+              ))}
+              <div>{tagline.substr(tagline.length - 7, tagline.length)}</div>
+            </div>
+            <div className={styles.lead}>{lead}</div>
+            <div className={styles.buttons}>
+              <Button theme='primary' href='#sign-up'>{signUpButton}</Button>
+              <Button theme='text' href={process.env.DONATE_URL}>{donateButton}</Button>
+              <Button theme='text' type='button' onClick={() => { this.setState({ pageSearchActive: true }) }}>{findFriendButton}</Button>
+              <Button theme='text' href={process.env.LOGIN_URL}>{loginButton}</Button>
+            </div>
+          </div>
+          {this.state.pageSearchActive
+            ? <PageSearchModal
+              campaignUid={process.env.CAMPAIGN_UID}
+              country='au'
+              renderIcon={false}
+              onClose={() => { this.setState({ pageSearchActive: false }) }}
+              />
+            : null
+          }
+        </Container>
+      </header>
+    )
+  }
+}

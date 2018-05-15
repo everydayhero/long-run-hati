@@ -4,7 +4,8 @@ import { receivePageSuccess } from '../'
 
 describe('receivePageSuccess', () => {
   const mockDispatch = sinon.spy()
-  receivePageSuccess(mockDispatch)('example', { items: [{ fields: 'Example content' }] })
+
+  receivePageSuccess(mockDispatch)('example', 'Example content')
   const action = mockDispatch.getCall(0).args[0]
 
   it('has a type of RECEIVE_PAGE_SUCCESS', () => {

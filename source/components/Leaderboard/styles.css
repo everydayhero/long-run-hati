@@ -1,0 +1,8 @@
+.title {
+  font-weight: bold;
+  padding: calc(var(--rhythm) * 0.25em) 0;
+}
+
+.listing {
+  padding: calc(var(--rhythm) * 0.25em) 0;
+}

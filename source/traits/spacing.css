@@ -83,16 +83,6 @@
   margin-bottom: calc(var(--rhythm) * 1.5rem);
 }
 
-.mx-quarter {
-  margin-left: calc(var(--rhythm) * 0.25rem);
-  margin-right: calc(var(--rhythm) * 0.25rem);
-}
-
-.mx-half {
-  margin-left: calc(var(--rhythm) * 0.5rem);
-  margin-right: calc(var(--rhythm) * 0.5rem);
-}
-
 .mx-1 {
   margin-left: calc(var(--rhythm) * 1rem);
   margin-right: calc(var(--rhythm) * 1rem);
@@ -100,6 +90,10 @@
 
 .mb-2 {
   margin-bottom: calc(var(--rhythm) * 2rem);
+}
+
+.mt-3 {
+  margin-top: calc(var(--rhythm) * 3rem);
 }
 
 .my-2 {
@@ -161,14 +155,6 @@
   padding-right: calc(var(--rhythm) * .5rem);
 }
 
-.pb-half {
-  padding-bottom: calc(var(--rhythm) * .5rem);
-}
-
-.pt-half {
-  padding-top: calc(var(--rhythm) * .5rem);
-}
-
 .p-1 {
   padding: calc(var(--rhythm) * 1rem);
 }
@@ -181,10 +167,6 @@
 .px-1 {
   padding-left: calc(var(--rhythm) * 1rem);
   padding-right: calc(var(--rhythm) * 1rem);
-}
-
-.pb-1 {
-  padding-bottom: calc(var(--rhythm) * 1rem);
 }
 
 .px-1half {

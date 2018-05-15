@@ -1,64 +1,51 @@
 import React from 'react'
 
-import HomeTracker from '../HomeTracker'
-import HomeLeaderboards from '../HomeLeaderboards'
-import Hero from '../Hero'
-import Intro from '../Intro'
-import Race from '../Race'
-import Cause from '../Cause'
-import Reward from '../Reward'
-import Inspiration from '../Inspiration'
-import Charities from '../Charities'
 import Main from '../Main'
+import HomeLeaderboards from '../HomeLeaderboards'
+import About from '../About'
+import Metrics from '../Metrics'
+import JoinTheMovement from '../JoinTheMovement'
+import SignUp from '../SignUp'
+import LocationsResources from '../LocationsResources'
+import Social from '../Social'
 
 export default ({
-  title,
-  hero = {},
-  intro = {},
-  race = {},
-  cause = {},
-  reward = {},
-  charities = [],
+  header = {},
+  footer = {},
+  about = {},
+  leaderboard = {},
+  joinTheMovement = {},
+  signUpNow = {},
+  locations = {},
+  currentHash = '',
   teams = [],
   individuals = [],
-  route = {},
-  inspiration = {},
-  campaignUid = '',
-  currentHash = '',
-  pageSearchModal = false,
-  charitySearchModal = false
+  resources = []
 }) => (
-  <Main title={title}>
-    <Hero {...{
-      ...hero,
-      pageSearchModal,
-      charitySearchModal
-    }} />
-    <HomeTracker />
-    <HomeLeaderboards />
-    <Intro {...{
-      ...intro,
-      currentHash
-    }} />
-    <Race {...{
-      ...race,
-      currentHash
-    }} />
-    <Cause {...{
-      ...cause,
-      currentHash
-    }} />
-    <Reward {...{
-      ...reward,
-      currentHash
-    }} />
-    <Charities {...{
-      charities,
-      currentHash
-    }} />
-    <Inspiration {...{
-      ...inspiration,
-      currentHash
-    }} />
+  <Main
+    header={header}
+    footer={footer}
+  >
+    <Metrics
+      teams={teams}
+      individuals={individuals}
+    />
+    <HomeLeaderboards
+      {...leaderboard}
+      teams={teams}
+      individuals={individuals}
+    />
+    <About
+      {...about}
+    />
+    <JoinTheMovement
+      {...joinTheMovement}
+    />
+    <SignUp
+      {...signUpNow}
+      currentHash={currentHash}
+    />
+    <LocationsResources resources={resources} locations={locations} />
+    <Social />
   </Main>
 )

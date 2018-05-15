@@ -15,5 +15,5 @@ git config --global user.email buildkite@everydayhero.com
 mkdir -p /root/.ssh
 ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
 
-npm install
+npm install --no-progress
 npm run deploy:$ENVIRONMENT

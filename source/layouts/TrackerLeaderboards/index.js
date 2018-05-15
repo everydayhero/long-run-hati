@@ -1,112 +1,121 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import { push, pushToggle } from '../../store/actions/tracker'
+import Leaderboard from '../../components/Leaderboard'
+import { TabHeads, TabHead } from '../../components/Tabs'
 import Bar from '../../components/Bar'
-import Filter from '../../components/Filter'
-import { Leaderboard } from '../../components/Leaderboards'
-import { Toggle, ToggleItem } from '../../components/Toggle'
 import styles from './styles.css'
-import { defaultParams, isExpanded, getType } from '../../utils/tracker'
 
-import {
-  PANEL_MAP,
-  PANEL_LEADERBOARD,
-  TYPE_TEAMS,
-  TYPE_INDIVIDUALS,
-  METRIC_POSITION,
-  METRIC_RAISED,
-  METRIC_DISTANCE
-} from '../../utils/constants'
+const LEADERBOARDS = [
+  {
+    title: 'Team',
+    icon: '$',
+    type: 'teams',
+    metric: 'funds-raised'
+  },
+  {
+    title: 'Team',
+    icon: 'KM',
+    type: 'teams',
+    metric: 'distance'
+  },
+  {
+    title: 'Individual',
+    icon: '$',
+    type: 'individuals',
+    metric: 'funds-raised'
+  }
+]
 
-const TrackerLeaderboards = (props) => ({
-  props,
+const renderTabs = ({
+  router,
+  query = {}
+}) => {
+  let { type = 'teams', metric = 'funds-raised' } = query
+  return (
+    <TabHeads>
+      {LEADERBOARDS.map((tab, i) => (
+        <TabHead
+          key={i}
+          selected={type === tab.type && metric === tab.metric}
+          onClick={() => router.push({
+            pathname: '/tracker',
+            query: {
+              ...query,
+              type: tab.type,
+              metric: tab.metric
+            }
+          })}
+          {...tab}
+        />
+      ))}
+    </TabHeads>
+  )
+}
 
-  handleToggleClick: (router, query) => () => pushToggle(router)(query),
+const renderLeaderboard = ({
+  teams = [],
+  individuals = [],
+  query = {},
+  router
+}) => (
+  <Leaderboard
+    title={`${query.type === 'individuals' ? 'Individual' : 'Team'} ${query.metric === 'distance' ? 'distance' : 'fundraising'}`}
+    type={query.type}
+    metric={query.metric}
+    data={query.type === 'individuals' ? individuals : teams}
+    selected={query.type === 'individuals' ? query.individual : query.id}
+    entity={query.type === 'individuals' ? 'individuals' : 'teams'}
+    filter={query.filter}
+    onFilter={(val) => router.push({
+      pathname: '/tracker',
+      query: {
+        ...query,
+        filter: val
+      }
+    })}
+  />
+)
 
-  handleTypeClick: (router, query, type) => () => push(router)(query, {
-    type,
-    metric: type === TYPE_TEAMS ? METRIC_POSITION : METRIC_RAISED
-  }),
+const renderToggleBar = ({ query = {}, router }) => {
+  return (
+    <Bar
+      position='bottom'
+      onClick={() => router.push({
+        pathname: '/tracker',
+        query: {
+          ...query,
+          panel: query.panel === 'leaderboard' ? 'map' : 'leaderboard'
+        }
+      })}
+    >
+      <span>Leaderboard</span>
+      <span className={`fa fa-chevron-${query.panel === 'leaderboard' ? 'down' : 'up'} ${styles.icon}`}></span>
+    </Bar>
+  )
+}
 
-  handleMetricClick: (router, query, metric) => () => push(router)(query, { metric }),
-
-  handleFilter: (router, query) => (filter) => push(router)(query, { filter }),
-
-  handleSelect: (router, query) => (team, individual) => push(router)(query, { team, individual, panel: PANEL_MAP }),
-
+class TrackerLeaderboards extends React.Component {
   render () {
-    let { query, router, metrics = {} } = this.props
-
-    let params = {
-      ...defaultParams,
-      ...query
-    }
-
-    let expanded = isExpanded(params)
-
+    let { query = {} } = this.props
     return (
-      <div className={`${styles.wrapper} ${expanded ? styles.expanded : ''}`}>
-        <Bar onClick={this.handleToggleClick(router, params)}>
-          <span>Leaderboard</span>
-          <span className={`fa fa-chevron-${expanded ? 'down' : 'up'} ${styles.icon}`} />
-        </Bar>
+      <div className={`${styles.wrapper} ${query.panel === 'leaderboard' ? styles.expanded : ''}`}>
+        {renderToggleBar(this.props)}
         <div className={styles.leaderboards}>
-          <Toggle size='sm' theme='primary'>
-            <ToggleItem
-              selected={params.type === TYPE_TEAMS}
-              onClick={this.handleTypeClick(router, params, TYPE_TEAMS)}
-              children='Teams'
-            />
-            <ToggleItem
-              selected={params.type === TYPE_INDIVIDUALS}
-              onClick={this.handleTypeClick(router, params, TYPE_INDIVIDUALS)}
-              children='Individuals'
-            />
-          </Toggle>
-          <Toggle size='sm' theme='primary'>
-            {params.type === TYPE_TEAMS && (
-              <ToggleItem
-                selected={params.metric === METRIC_POSITION}
-                onClick={this.handleMetricClick(router, params, METRIC_POSITION)}
-                children='Position'
-              />
-            )}
-            <ToggleItem
-              selected={params.metric === METRIC_RAISED}
-              onClick={this.handleMetricClick(router, params, METRIC_RAISED)}
-              children='Funds Raised'
-            />
-            <ToggleItem
-              selected={params.metric === METRIC_DISTANCE}
-              onClick={this.handleMetricClick(router, params, METRIC_DISTANCE)}
-              children='Cycled'
-            />
-          </Toggle>
-          {params.metric === METRIC_POSITION && (
-            <div className={styles.description}>
-              Position is calculated using distance cycled, <strong>plus 1km for every $5 raised</strong>.
-            </div>
-          )}
-          <Filter
-            onChange={this.handleFilter(router, params)}
-            placeholder={`Filter ${getType(params)}`}
-            value={params.filter}
-          />
-          <Leaderboard
-            data={params.type === TYPE_INDIVIDUALS ? metrics.individuals : metrics.teams}
-            type={getType(params) }
-            metric={params.metric}
-            filter={params.filter}
-            selected={params.type === TYPE_INDIVIDUALS ? params.individual : params.team}
-            onSelect={this.handleSelect(router, params)}
-          />
+          {renderTabs(this.props)}
+          {renderLeaderboard(this.props)}
         </div>
       </div>
     )
   }
-})
+}
 
-const mapStateToProps = ({ metrics }) => ({ metrics })
+const mapStateToProps = ({teams, individuals, routing}) => {
+  return ({
+    teams: teams.data,
+    individuals: individuals.data,
+    query: routing.locationBeforeTransitions ? routing.locationBeforeTransitions.query : {}
+  })
+}
 
 export default withRouter(connect(mapStateToProps)(TrackerLeaderboards))

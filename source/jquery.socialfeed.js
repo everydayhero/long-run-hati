@@ -732,7 +732,6 @@ module.exports = function($, window, document, Codebird, undefined) {
                 utility: {
 
                     getPosts: function(json) {
-                        console.log(json);
                         if (json.query.count > 0 ){
                             $.each(json.query.results.feed, function(index, element) {
                                 var post = new SocialFeedPost('rss', Feed.rss.utility.unifyPostData(index, element));

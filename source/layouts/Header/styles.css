@@ -1,9 +1,73 @@
 .base {
-  composes: contain contain-md from '../../traits/layout.css';
-  composes: py-half container from '../../traits/spacing.css';
-  display: flex;
+  background-size: cover;
+  background-position: center;
 }
 
-.cta {
-  margin-left: auto;
+.container {
+  padding-top: calc(var(--rhythm) * 1em);
+  padding-bottom: calc(var(--rhythm) * 1em);
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-bottom: calc(var(--rhythm) * 2em);
+  width: 100%;
+}
+
+.logo img {
+  width: 100%;
+}
+
+.leadin {
+  color: var(--light);
+  width: 100%;
+}
+
+.tagline {
+  margin-bottom: calc(var(--rhythm) * 1em);
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 12vw;
+  line-height: .85;
+}
+
+.lead {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: calc(var(--rhythm) * 1em);
+  text-shadow: 0 0 5rem rgba(0,0,0,0.5);
+  max-width: 13em;
+  line-height: 1;
+}
+
+.buttons > * + * {
+  margin-left: calc(var(--rhythm) * .125rem);
+}
+
+@media (min-width: 37.5em) {
+  .container {
+    min-height: 90vh;
+    padding-top: calc(var(--rhythm) * 2rem);
+    padding-bottom: calc(var(--rhythm) * 2rem);
+  }
+  .logo {
+    align-self: flex-end;
+    max-width: 18em;
+  }
+
+  .tagline {
+    font-size: 4.5rem;
+  }
+
+  .lead {
+    font-size: 1.44rem;
+  }
+
+  .buttons > * + * {
+    margin-left: calc(var(--rhythm) * .25rem);
+  }
 }

@@ -1,3 +1,0 @@
-.base {
-  composes: py-2 from '../../traits/spacing.css';
-}

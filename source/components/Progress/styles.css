@@ -10,11 +10,11 @@
 
 .current {
   composes: primary from '../../traits/colors.css';
-  composes: scale-sm bold from '../../traits/type.css'
+  composes: scale-sm bold smooth from '../../traits/type.css'
 }
 
 .target {
-  composes: scale-xs bold from '../../traits/type.css'
+  composes: scale-xs bold smooth from '../../traits/type.css'
 }
 
 .bar {

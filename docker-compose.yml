@@ -1,5 +1,5 @@
 build:
-  image: node:latest
+  image: node:6.2.1
   working_dir: /code
   volumes:
     - .:/code
@@ -14,5 +14,4 @@ build:
     - SSH_AUTH_SOCK=/ssh-agent
     - S3_KEY
     - S3_SECRET
-    - CONTENTFUL_API_TOKEN
-    - CONTENTFUL_SPACE_ID
+    - PRISMIC_HOME_ID

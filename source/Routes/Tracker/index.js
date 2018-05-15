@@ -1,11 +1,11 @@
-import React from 'react'
-import { provideHooks } from 'redial'
-import { connect } from 'react-redux'
-
-import Tracker from '../../layouts/Tracker'
-
+import React, { Component } from 'react'
 import { fetchRoute } from 'tour-tracker'
-import { fetchMetrics } from '../../store/actions/metrics'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
+import { provideHooks } from 'redial'
+import TrackerLayout from '../../layouts/Tracker'
+import { fetchTeams } from '../../store/actions/teams'
+import { fetchIndividuals } from '../../store/actions/individuals'
 
 const isFetched = ({ status } = {}) => status === 'fetched'
 
@@ -15,30 +15,79 @@ const unlessFetched = (resource = {}, fetcher) => (
     : fetcher()
 )
 
-const fetchTrackerContent = ({
+export const fetchTrackerPageContent = ({
   dispatch,
   teams = {},
   individuals = {},
-  tracker = { routes: [] }
+  map = {}
 }) => {
-  return new Promise((resolve, reject) => {
-    Promise.all([
-      tracker.routes.forEach((route, index) => unlessFetched(route, () => fetchRoute(index, route.waypoints)(dispatch))),
-      fetchMetrics(dispatch)(process.env.CAMPAIGN_ID, process.env.START_DATE, process.env.END_DATE)
-    ]).then(resolve, reject)
-  })
+  const course = map.routes[0]
+
+  return Promise.all([
+    fetchTeams(dispatch)(process.env.CAMPAIGN_UID, process.env.FILTER_TEAMS.split(',')),
+    fetchIndividuals(dispatch)(process.env.CAMPAIGN_UID),
+    unlessFetched(course, () => fetchRoute(0, course.waypoints)(dispatch))
+  ])
 }
 
 const hooks = {
   fetch: ({
     dispatch,
-    tracker
+    teams,
+    individuals,
+    map
   }) => (
-    fetchTrackerContent({
+    fetchTrackerPageContent({
       dispatch,
-      tracker
+      teams,
+      individuals,
+      map
     })
   )
 }
 
-export default provideHooks(hooks)(Tracker)
+const mapStateToProps = ({
+  teams = {},
+  individuals = {},
+  map = {},
+  routing = {}
+}) => ({
+  teams: teams.data,
+  individuals: individuals.data,
+  selected: map.selected,
+  waypoint: map.selectedWaypoint,
+  query: routing.locationBeforeTransitions ? routing.locationBeforeTransitions.query : {}
+})
+
+class TourTracker extends Component {
+  componentWillReceiveProps (nextProps) {
+    if (this.props.selected !== nextProps.selected) {
+      this.props.router.push({
+        pathname: ('/tracker'),
+        query: {
+          ...nextProps.query,
+          id: nextProps.selected
+        }
+      })
+    }
+
+    if (this.props.waypoint !== nextProps.waypoint) {
+      this.props.router.push({
+        pathname: ('/tracker'),
+        query: {
+          ...nextProps.query,
+          waypoint: nextProps.waypoint,
+          id: undefined
+        }
+      })
+    }
+  }
+
+  render () {
+    return <TrackerLayout
+      {...this.props}
+    />
+  }
+}
+
+export default withRouter(connect(mapStateToProps)(provideHooks(hooks)(TourTracker)))

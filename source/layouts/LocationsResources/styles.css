@@ -1,0 +1,26 @@
+.root {
+  background-size: cover;
+}
+
+.container {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 50rem) {
+  .root {
+    background-image: none !important;
+  }
+}
+
+@media (min-width: 50rem) {
+  .root {
+    background-position: center;
+  }
+  .container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+}

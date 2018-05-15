@@ -20,9 +20,37 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
+  text-align: left;
   font: inherit;
   vertical-align: baseline;
 }
+
+html {
+  font-size: 100%;
+}
+
+body {
+  line-height: 1.5;
+}
+
+@media (min-width: 70em) {
+  html {
+    font-size: 110%;
+  }
+}
+
+@media (min-width: 90em) {
+  html {
+    font-size: 120%;
+  }
+}
+
+@media (min-width: 110em) {
+  html {
+    font-size: 140%;
+  }
+}
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -34,6 +62,9 @@ ol, ul {
 blockquote, q {
   quotes: none;
 }
+h1, h2, h3, h4, h5, h6, p, blockquote, pre {
+  font-size: inherit;
+}
 blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
@@ -42,6 +73,7 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+  width: 100%;
 }
 
 /**
@@ -71,6 +103,7 @@ a {
 
 img {
   max-width: 100%;
+  display: block;
 }
 
 button {
@@ -121,3 +154,28 @@ hr {
 :-moz-placeholder { /* Firefox 18- */
   color: #aaa;
 }
+
+@import '../node_modules/leaflet/dist/leaflet.css';
+@import '../node_modules/edh-widgets/src/scss/variables';
+@import '../node_modules/edh-widgets/src/scss/mixins';
+@import '../node_modules/edh-widgets/src/scss/modules';
+@import '../node_modules/edh-widgets/src/components/forms/Input/style';
+@import '../node_modules/edh-widgets/src/components/forms/SearchInput/style';
+@import '../node_modules/edh-widgets/src/components/helpers/Overlay/style';
+@import '../node_modules/edh-widgets/src/components/helpers/Icon/style';
+@import '../node_modules/edh-widgets/src/components/search/PageSearchResult/style';
+@import '../node_modules/edh-widgets/src/components/search/SearchInput/style';
+@import '../node_modules/edh-widgets/src/components/search/SearchModal/style';
+@import '../node_modules/edh-widgets/src/components/search/SearchPagination/style';
+@import '../node_modules/edh-widgets/src/components/search/SearchResult/style';
+@import '../node_modules/edh-widgets/src/components/search/SearchResults/style';
+@import '../node_modules/edh-widgets/src/components/supporters/Supporters/style';
+@import '../node_modules/edh-widgets/src/components/supporters/SupporterCard/style';
+@import '../node_modules/edh-widgets/src/components/supporters/SupporterCardGiveNow/style';
+@import '../node_modules/edh-widgets/src/components/footprint/Footprint/style';
+@import '../node_modules/edh-widgets/src/components/footprint/FootprintGroup/style';
+@import '../node_modules/edh-widgets/src/components/footprint/FootprintSector/style';
+@import '../node_modules/edh-widgets/src/components/footprint/FootprintTile/style';
+@import '../node_modules/edh-widgets/src/components/footprint/FootprintTip/style';
+@import '../node_modules/edh-widgets/src/components/footprint/FootprintTipLine/style';
+@import '../node_modules/edh-widgets/src/components/callstoaction/CallToActionButton/style';

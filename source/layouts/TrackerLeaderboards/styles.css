@@ -1,6 +1,6 @@
 .wrapper {
   position: fixed;
-  z-index: 9999;
+  z-index: 4;
   height: 85%;
   bottom: -85%;
   left: 0;
@@ -17,18 +17,13 @@
 
 .leaderboards {
   border-top: 2px solid var(--grey);
-  composes: p-half from '../../traits/spacing.css';
+  composes: py-half px-1 from '../../traits/spacing.css';
   position: absolute;
-  top: 2.5em;
+  top: 2.75em;
   left: 0;
   right: 0;
   bottom: 0;
   overflow: auto;
-}
-
-.description {
-  composes: lighter-grey from '../../traits/colors.css';
-  composes: scale-xs from '../../traits/type.css';
 }
 
 @media (min-width: 50em) {

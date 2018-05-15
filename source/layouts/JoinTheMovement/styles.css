@@ -1,0 +1,17 @@
+.header {
+  composes: light on-primary from '../../traits/colors.css';
+  composes: py-1 from '../../traits/spacing.css';
+}
+
+.heading {
+  composes: bold scale-xxl from '../../traits/type.css';
+  line-height: 1;
+}
+
+.steps {
+  composes: my-2 from '../../traits/spacing.css';
+}
+
+.steps > * + * {
+  margin-top: calc(var(--rhythm) * 1.5rem);
+}

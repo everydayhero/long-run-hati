@@ -1,0 +1,18 @@
+.card {
+  composes: dark from '../../traits/colors.css';
+  composes: scale-sm from '../../traits/type.css';
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.detail {
+  padding: 1.5em;
+}
+
+.title {
+  composes: smooth from '../../traits/type.css';
+}
+
+.kms {
+  composes: scale-xs bold from '../../traits/type.css';
+}

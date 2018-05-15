@@ -6,7 +6,6 @@
 
 .map {
   height: 100vh;
-  -webkit-overflow-scrolling: touch;
 }
 
 .exit {
@@ -19,7 +18,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.10);
   composes: primary from '../../traits/colors.css';
   composes: py-eighth px-quarter from '../../traits/spacing.css';
-  composes: scale-xs bold from '../../traits/type.css';
+  composes: scale-xs bold smooth from '../../traits/type.css';
 }
 
 .exit i {

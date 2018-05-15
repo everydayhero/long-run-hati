@@ -1,0 +1,111 @@
+.header {
+  composes: light on-primary from '../../traits/colors.css';
+  composes: py-1 from '../../traits/spacing.css';
+}
+
+.heading {
+  composes: bold scale-xxl from '../../traits/type.css';
+  line-height: 1;
+}
+
+.actions {
+  composes: py-2 from '../../traits/spacing.css';
+}
+
+.actions > * + * {
+  margin-top: calc(var(--rhythm) * 1.5rem);
+}
+
+.action {
+  composes: align-left from '../../traits/type.css';
+}
+
+.actionHeading {
+  composes: bold scale-xxl align-left uppercase from '../../traits/type.css';
+  composes: px-half py-quarter from '../../traits/spacing.css';
+  composes: light from '../../traits/colors.css';
+  line-height: 1;
+  text-shadow: 0 0 25px rgba(0,0,0,.8);
+  position: absolute;
+  bottom: 0.5em;
+  left: 0.25em;
+  width: 75%;
+  z-index: 2;
+}
+
+.hero {
+  composes: mb-half from '../../traits/spacing.css';
+  position: relative;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.hero:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: background-color 250ms linear;
+}
+
+.body {
+  composes: mt-half from '../../traits/spacing.css';
+  composes: bold from '../../traits/type.css';
+  cursor: pointer;
+}
+
+@media (min-width: 25em) {
+  .actionHeading {
+    font-size: 2.986rem;
+  }
+}
+
+@media (min-width: 40em) {
+  .actions {
+    display: flex;
+    margin-left: calc(var(--rhythm) * -1rem);
+    margin-right: calc(var(--rhythm) * -1rem);
+  }
+
+  .action {
+    width: 33%;
+    margin: 0;
+    flex-shrink: 1;
+    padding-left: calc(var(--rhythm) * 1rem);
+    padding-right: calc(var(--rhythm) * 1rem);
+  }
+
+  .actionHeading {
+    font-size: 1.44em;
+    transition: all 250ms linear;
+  }
+
+  .hero img {
+    transform: scale(1.2);
+    transition: transform 250ms linear;
+  }
+
+  .hero:hover img {
+    transform: scale(1);
+  }
+
+  .hero:hover:after {
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  .hero:hover .actionHeading {
+    bottom: 50%;
+    transform: translateY(50%);
+  }
+}
+
+@media (min-width: 60em) {
+  .actionHeading {
+    font-size: 2.074em;
+  }
+}

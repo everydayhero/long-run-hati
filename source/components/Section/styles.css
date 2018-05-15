@@ -1,18 +1,22 @@
 .base {
+  composes: sansserif from '../../traits/type.css';
+  background-size: cover;
 }
 
 .grey {
-  composes: base;
-  background-color: #ececec;
+  composes: on-grey from '../../traits/colors.css';
 }
 
-.primary {
-  composes: base;
+.primaryDark {
   composes: light on-primary from '../../traits/colors.css';
 }
 
-.higher {
-  composes: base;
-  position: relative;
-  z-index: 3;
+.primaryLight {
+  composes: dark on-primary-light from '../../traits/colors.css';
+}
+
+@media (min-width: 60em) {
+  .base {
+    padding: 0;
+  }
 }

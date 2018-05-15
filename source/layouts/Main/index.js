@@ -1,17 +1,25 @@
 import React from 'react'
 import DocumentTitle from 'react-document-title'
-
-import Footer from '../Footer'
 import styles from './styles.css'
 
+import Footer from '../Footer'
+import Header from '../Header'
+
 export default ({
-  title = 'The Great Southern Crossing',
+  title = 'Run India',
+  header = {},
+  footer = {},
   children
 }) => (
   <DocumentTitle title={title}>
     <article className={styles.base}>
+      <Header
+        {...header}
+      />
       {children}
-      <Footer />
+      <Footer
+        {...footer}
+    />
     </article>
   </DocumentTitle>
 )

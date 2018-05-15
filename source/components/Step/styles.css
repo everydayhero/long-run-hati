@@ -1,62 +1,38 @@
-.base {
-  composes: contain-xs from '../../traits/layout.css';
+.hero {
+  composes: mb-half from '../../traits/spacing.css';
   position: relative;
 }
 
-.inner {
-  composes: py-1 from '../../traits/spacing.css';
-  display: flex;
-  align-items: center;
-}
-
-.inner {
-  margin-left: calc(var(--rhythm) * -.5rem);
-  margin-right: calc(var(--rhythm) * -.5rem);
-}
-
-.innerAlt {
-  composes: inner;
-  flex-direction: row-reverse;
-}
-
-.circle,
-.content {
-  position: relative;
-  z-index: 3;
-  padding-left: calc(var(--rhythm) * .5rem);
-  padding-right: calc(var(--rhythm) * .5rem);
-}
-
-.circle {
-  position: relative;
-  width: calc(var(--rhythm) * 5rem);
-  flex-shrink: 0;
-}
-
-.image {
-  border-radius: 50%;
-}
-
-.circle i {
-  margin: 0;
-  display: block;
-  color: white;
+.count {
+  composes: x-bold from '../../traits/type.css';
+  composes: light from '../../traits/colors.css';
+  composes: px-half py-quarter from '../../traits/spacing.css';
+  font-size: 5rem;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  line-height: 1;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2.488em;
+  left: 0;
+  top: 0;
 }
 
-.content > *:first-child {
-  color: var(--primary);
-  font-weight: 900;
-  font-size: 1.2rem;
-  margin-bottom: calc(var(--rhythm) * .5rem);
+.heading {
+  composes: bold uppercase from '../../traits/type.css';
+  composes: primary from '../../traits/colors.css';
 }
 
-@media (min-width: 37.5em) {
-  .circle {
-    width: calc(var(--rhythm) * 7rem);
+@media (min-width: 50em) {
+  .base {
+    display: flex;
+    align-items: center;
+  }
+  .hero,
+  .content {
+    width: 50%;
+  }
+  .hero {
+    padding-right: calc(var(--rhythm) * .5rem);
+  }
+  .content {
+    padding-left: calc(var(--rhythm) * .5rem);
   }
 }

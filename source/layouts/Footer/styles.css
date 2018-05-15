@@ -1,84 +1,86 @@
 .base {
+  padding-top: calc(var(--rhythm) * 2em);
+  padding-bottom: calc(var(--rhythm) * 2em);
+  color: #fff;
+  background-color: #2b2d42;
+}
+
+.footerPanel {
+  text-align: left;
+  margin-top: calc(var(--rhythm) * 2em);
+  margin-bottom: calc(var(--rhythm) * 2em);
   text-align: center;
-  background-color: #fff;
-}
-
-.social {
-  composes: py-2 from '../../traits/spacing.css';
-}
-
-.hashTag {
-  composes: light on-primary from '../../traits/colors.css';
-  composes: px-quarter from '../../traits/spacing.css';
-}
-
-.icons > * + * {
-  margin-left: calc(var(--rhythm) * .5rem);
-}
-
-.socialLink {
-  composes: light from '../../traits/colors.css';
-  composes: p-quarter from '../../traits/spacing.css';
-  composes: scale-lg from '../../traits/type.css';
-  border-radius: 6rem;
-  height: calc(var(--rhythm) * 1.5rem);
-  width: calc(var(--rhythm) * 1.5rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #333;
-}
-
-.instagram {
-  composes: socialLink;
-  background-color: #E4405F;
-}
-
-.facebook {
-  composes: socialLink;
-  background-color: #3B5998;
-}
-
-.twitter {
-  composes: socialLink;
-  background-color: #55ACEE;
-}
-
-.icons {
-  composes: mt-half from '../../traits/spacing.css';
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.heading {
-  composes: heading scale-xl x-bold from '../../traits/type.css';
 }
 
 .logo {
-  composes: ml-half from '../../traits/spacing.css';
-  display: inline-block;
-  vertical-align: middle;
-  width: auto;
-  margin-top: 0;
-}
-
-.bottom {
-  composes: pb-2 from '../../traits/spacing.css';
-  composes: light from '../../traits/colors.css';
-  padding-top: calc(var(--rhythm) * 8rem);
-  background-image: url('/layouts/Footer/mountains.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: top center;
+  padding-bottom: calc(var(--rhythm) * 2em);
+  width: 100%;
+  max-width: 15em;
+  margin: 0 auto;
 }
 
 .links {
-  composes: mt-half from '../../traits/spacing.css';
-  composes: scale-sm from '../../traits/type.css';
-  opacity: .7;
+  font-size: 0.833rem;
 }
 
-.links > * + * {
-  margin-left: calc(var(--rhythm) * .5rem)
+.link {
+  padding-left: calc(var(--rhythm) * 0.25em);
+  padding-right: calc(var(--rhythm) * 0.25em);
+}
+
+.linkItem {
+  opacity: .6;
+}
+
+.linkItem:hover,
+.linkItem:focus {
+  opacity: .9;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+}
+
+.socialLink i {
+  background-color: var(--light);
+  color: var(--primary);
+  transition: all 250ms linear;
+  padding: 10px;
+  margin: 0 0.25em;
+  width: 42px;
+  height: 42px;
+  font-size: 1.125rem;
+  vertical-align: middle;
+}
+
+.socialLink:hover i, .socialLink:focus i {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+@media (min-width: 40em) {
+  .footerPanels {
+    display: flex;
+    align-items: center;
+    margin-left: calc(var(--rhythm) * -1rem);
+    margin-right: calc(var(--rhythm) * -1rem);
+  }
+
+  .footerPanel {
+    width: 33%;
+    flex-shrink: 1;
+    padding-left: calc(var(--rhythm) * 1rem);
+    padding-right: calc(var(--rhythm) * 1rem);
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .link {
+    display: inline-block;
+  }
+
+  .socialLinks {
+    justify-content: flex-end;
+  }
 }

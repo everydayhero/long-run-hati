@@ -1,37 +1,55 @@
 .base {
-  composes: light from '../../traits/colors.css';
-  background-image: url('/layouts/HomeLeaderboards/background.jpg');
-  background-size: cover;
+  composes: py-2 from '../../traits/spacing.css';
+  composes: light on-dark from '../../traits/colors.css';
+  position: relative;
+  opacity: .9;
 }
 
-.inner {
-  composes: contain-md contain from '../../traits/layout.css';
-  composes: container py-1 from '../../traits/spacing.css';
-  composes: py-1 from '../../traits/spacing.css';
-}
-
-.top {
+.header {
+  composes: mb-1 from '../../traits/spacing.css';
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.top > div {
-  padding: calc(var(--rhythm) * 0.25rem) 0;
+.title {
+  composes: bold scale-xl from '../../traits/type.css';
 }
 
-.topTitle {
-  composes: uppercase heading scale-xxxl x-bold from '../../traits/type.css';
-  line-height: 1;
+.link {
+  composes: py-half from '../../traits/spacing.css';
+  composes: bold scale-md from '../../traits/type.css';
+  composes: primary from '../../traits/colors.css';
+  display: block;
+  cursor: pointer;
 }
 
-.tip {
-  composes: pb-half from '../../traits/spacing.css';
-  composes: scale-xs from '../../traits/type.css';
-  opacity: 0.7;
+.link:hover,
+.link:focus {
+  opacity: .8;
 }
 
-.leaderboards {
-  background-color: rgba(0, 0, 0, 0.5);
+.link:active {
+  opacity: .6;
+}
+
+.link i {
+  margin-left: 0.5em;
+}
+
+.smallLink {
+  composes: link;
+}
+.largeLink {
+  composes: link;
+  display: none;
+}
+
+@media (min-width: 37.5em) {
+  .smallLink {
+    display: none;
+  }
+  .largeLink {
+    display: block;
+  }
 }

@@ -2,5 +2,5 @@
 
 set -eu pipefail
 
-npm install
+npm install --no-progress
 npm test

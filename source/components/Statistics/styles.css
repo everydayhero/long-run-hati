@@ -1,33 +1,95 @@
-.metrics {
-  composes: mt-1 from '../../traits/spacing.css';
-  display: flex;
-  flex-wrap: wrap;
+.updates {
+  composes: py-1 from '../../traits/spacing.css';
+  composes: scale-md from '../../traits/type.css';
 }
 
-.section {
-  flex: 0 0 50%;
-  composes: py-quarter from '../../traits/spacing.css';
+.updates :global .CountDown * {
+  display: inline;
 }
 
-.total {
-  composes: heading scale-xxl bold from '../../traits/type.css';
-  line-height: 1.2;
+.updates :global .CountDown * + * {
+  margin-left: calc(var(--rhythm) * .25rem);
 }
 
-.metric {
-  composes: uppercase heading scale-xs from '../../traits/type.css';
+.updates {
+  composes: py-half from '../../traits/spacing.css';
+  composes: scale-lg from '../../traits/type.css';
+  font-weight: 700;
+}
+
+.updates :global .TotalSupporters__total,
+.updates :global .TotalSupporters__title,
+.updates :global .TotalDistance__total,
+.updates :global .TotalDistance__title,
+.updates :global .FundsRaised__total,
+.updates :global .FundsRaised__title {
+  display: inline;
+}
+
+.updates :global .TotalSupporters__total,
+.updates :global .FundsRaised__total {
+  margin-right: 0.5em;
+}
+
+.live {
+  composes: py-eighth px-quarter from '../../traits/spacing.css';
+  composes: scale-sm from '../../traits/type.css';
+  display: inline-block;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  text-transform: uppercase;
+}
+
+.live:after {
+  content: '';
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+  border-radius: 1em;
+  background-color: var(--primary);
+  margin-left: 0.5em;
+  top: -2px;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
 .countdown {
-  composes: mt-1 pt-half from '../../traits/spacing.css';
-  composes: uppercase heading bold scale-sm from '../../traits/type.css';
-  border-top: 3px solid rgba(255, 255, 255, 0.1);
+  font-weight: 700;
 }
 
-.countdown div {
+.metrics {
+  composes: py-1 from '../../traits/spacing.css';
+}
+
+.metrics li {
+  padding-left: 1em;
+}
+
+.metrics li div {
+  display: inline;
+}
+
+.metrics li:before {
+  content: '';
+  position: relative;
+  left: -1em;
   display: inline-block;
+  vertical-align: middle;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 0.5em;
+  background-color: var(--primary);
 }
 
-.countdown :global(.CountDown__days) {
-  margin-right: 0.25em;
+@keyframes blink {
+  0%, 100% {
+    opacity: 0;
+  }
+  30%, 60% {
+    opacity: 1;
+  }
 }

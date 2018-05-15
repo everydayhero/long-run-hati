@@ -1,113 +1,61 @@
-.base {
-  composes: sansserif align-center bold from '../../traits/type.css';
-  padding: calc(var(--rhythm) * .25em) calc(var(--rhythm) * .35em);
+.button {
+  composes: scale-sm from '../../traits/type.css';
+  font-weight: 700;
+  padding: calc(var(--rhythm) * .25rem);
+  text-decoration: none;
   display: inline-block;
-  transition: all 0.25s ease-out;
   cursor: pointer;
-  white-space: nowrap;
-  opacity: .9;
-}
-
-.base + .base {
-  margin-left: calc(var(--rhythm) * .5rem);
-  margin-top: 0;
-}
-
-.filled:hover,
-.filled:focus {
-  opacity: 1;
-}
-
-.filled:active {
   opacity: .8;
 }
 
+.button:disabled {
+  pointer-events: none !important;
+  opacity: .5 !important;
+}
+
+.button:hover,
+.button:focus {
+  opacity: 1;
+}
+
+.button:active {
+  opacity: .6;
+}
+
 .primary {
-  composes: base filled;
-  composes: on-primary light from '../../traits/colors.css';
+  composes: button;
+  color: var(--light);
+  background-color: var(--primary);
+}
+
+.primaryMap {
+  composes: primary;
+  display: block;
+  padding: calc(var(--rhythm) * .5rem) calc(var(--rhythm) * 1rem);
 }
 
 .primaryUpper {
-  composes: primary;
-  padding-left: calc(var(--rhythm) * .75em);
-  padding-right: calc(var(--rhythm) * .75em);
-  font-weight: 400;
+  composes: button;
+  color: var(--light);
+  background-color: var(--primary);
   text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
 }
 
-.primaryCaps {
-  composes: primary;
-  text-transform: uppercase;
-  font-weight: 900;
+.text {
+  color: var(--light);
 }
 
-.light {
-  composes: base filled;
-  composes: primary on-light from '../../traits/colors.css';
-}
-
-.lightCaps {
-  composes: light;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.outline {
-  composes: base;
-  composes: border-2 from '../../traits/shadows.css';
-  position: relative;
-  z-index: 1;
-}
-
-.outline:before {
+.map {
   position: absolute;
-  content: '';
-  top: 0;
-  left: 0;
-  right: 0;
   bottom: 0;
-  background-color: transparent;
-  z-index: -1;
-  transition: all 0.25s ease-out;
+  width: 100%;
+  background-color: color(var(--dark) alpha(-80%));
 }
 
-.outline:hover:before,
-.outline:focus:before {
-  background-color: currentColor;
-}
-
-.outline > *  {
-  color: #fff;
-}
-
-.primaryOutline {
-  composes: primary from '../../traits/colors.css';
-  composes: outline;
-}
-
-.dark {
-  composes: base;
-  composes: uppercase scale-sm heading bold from '../../traits/type.css';
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: calc(var(--rhythm) * 0.333rem) calc(var(--rhythm) * 0.5rem);
-}
-
-.dark > * {
-  vertical-align: middle;
-}
-
-.dark i {
-  margin-left: 0.5em;
-}
-
-.small {
-  composes: scale-sm from '../../traits/type.css';
-}
-
-.large {
-  composes: scale-lg from '../../traits/type.css';
-}
-
-.xl {
-  composes: scale-xl from '../../traits/type.css';
+@media (min-width: 37.5em) {
+  .button {
+    padding: calc(var(--rhythm) * .25rem) calc(var(--rhythm) * .5rem);
+    font-size: 1em;
+  }
 }

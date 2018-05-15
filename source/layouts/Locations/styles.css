@@ -1,0 +1,70 @@
+.root {
+  composes: light on-dark from '../../traits/colors.css';
+  composes: p-1 from '../../traits/spacing.css';
+}
+
+.heading {
+  composes: bold scale-lg uppercase from '../../traits/type.css';
+}
+
+.lead {
+  composes: my-half from '../../traits/spacing.css';
+}
+
+.cta {
+  composes: mt-quarter from '../../traits/spacing.css';
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.teamCounter {
+  display: inline-flex;
+  align-items: center;
+}
+
+.teamCount {
+  min-width: 2.25rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.counterText {
+  font-size: 1.3em;
+  line-height: 1;
+}
+
+.label {
+  composes: scale-sm from '../../traits/type.css';
+  opacity: .7;
+}
+
+.distanceLabel {
+  composes: label;
+  composes: align-right from '../../traits/type.css';
+}
+
+.location {
+  composes: bold from '../../traits/type.css';
+}
+
+.distance {
+  composes: align-right from '../../traits/type.css';
+}
+
+.footer {
+  composes: mt-half from '../../traits/spacing.css';
+  composes: label;
+}
+
+@media (min-width: 50em) {
+  .root {
+    opacity: .95;
+  }
+}
+
+@media (min-width: 60em) {
+  .root {
+    padding: calc(var(--rhythm) * 2rem);
+  }
+}

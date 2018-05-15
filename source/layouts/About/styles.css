@@ -1,0 +1,66 @@
+.headings {
+  composes: light on-primary from '../../traits/colors.css';
+  composes: py-half from '../../traits/spacing.css';
+  line-height: 1;
+}
+
+.heading {
+  composes: bold uppercase scale-lg from '../../traits/type.css';
+}
+
+.body {
+  composes: my-2 from '../../traits/spacing.css';
+}
+
+.body > * + * {
+  margin-top: calc(var(--rhythm) * .75rem);
+}
+
+.featuredImage {
+  background-size: cover;
+  background-position: center center;
+  min-height: calc(var(--rhythm) * 12rem);
+}
+
+@media (min-width: 37.5em) {
+  .heading {
+    font-size: 1.728rem;
+  }
+  .body {
+    overflow: hidden;
+    column-count: 2;
+    column-width: 50%;
+    column-gap: calc(var(--rhythm) * 2rem);
+    orphans: 3;
+    widows: 3;
+  }
+}
+
+.container a {
+  color: var(--primary);
+  cursor: pointer;
+  opacity: .8;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 70em) {
+  .featuredImage {
+    margin-bottom: calc(var(--rhythm) * 2rem);
+  }
+}
+
+@media (min-width: 70em) {
+  .container {
+    display: flex;
+  }
+  .body {
+    width: 66.6666%;
+    padding-right: calc(var(--rhythm) * 2rem);
+  }
+  .featuredImage {
+    width: 33.3333%;
+  }
+}
