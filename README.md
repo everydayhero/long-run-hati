@@ -11,8 +11,9 @@ Website for the Long Run for Hati, based off [Boiler Room](https://github.com/ev
 ```
  $ git clone git@github.com:everydayhero/long-run-hati.git
  $ cd long-run-hati
- $ npm i
- $ npm run dev
+ $ nvm use (to use version 6 of Node)
+ $ npm i (install dependencies)
+ $ npm run dev (local build)
 ```
 
 The site will be visible at: http://lvh.me:8080
