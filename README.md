@@ -6,14 +6,18 @@ Tour tracker for Long Run for Hati
 
 Website for the Long Run for Hati, based off [Boiler Room](https://github.com/everydayhero/boiler-room).
 
+## Requirements
+
+- Yarn
+
 ## Get started
 
 ```
  $ git clone git@github.com:everydayhero/long-run-hati.git
  $ cd long-run-hati
  $ nvm use (to use version 6 of Node)
- $ npm i (install dependencies)
- $ npm run dev (local build)
+ $ yarn (install dependencies)
+ $ yarn dev (local build)
 ```
 
 The site will be visible at: http://lvh.me:8080

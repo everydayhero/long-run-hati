@@ -1,13 +1,13 @@
 import prismic from 'prismic.io'
 
-export const fetchPage = (dispatch) => (route, prismicEntryId) => {
+export const fetchPage = (dispatch) => (route) => {
   dispatch({
     type: 'FETCH_PAGE',
     payload: { route }
   })
 
   return prismic.api('https://run-india.cdn.prismic.io/api').then((api) => (
-    api.query(`[[:d = at(document.id, "${prismicEntryId}")]]`)
+    api.query('[[:d = at(document.type, "home")]]')
   )).then((response) => (
     response.results[0]
   )).then((json) => {

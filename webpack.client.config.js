@@ -21,7 +21,6 @@ const cssExtractor = new ExtractTextPlugin(
 
 const define = new webpack.DefinePlugin({
   'process.env.NODE_ENV': `'${process.env.NODE_ENV}'`,
-  'process.env.PRISMIC_HOME_ID': `'${process.env.PRISMIC_HOME_ID}'`,
   'process.env.BASE_URL': `'${process.env.BASE_URL || ''}'`,
   'process.env.BASE_PATH': `'${process.env.BASE_PATH || '/'}'`,
   'process.env.SUPPORTER_URL': `'${process.env.SUPPORTER_URL || '/'}'`,

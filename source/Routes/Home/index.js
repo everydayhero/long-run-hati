@@ -29,7 +29,7 @@ export const fetchHomePageContent = ({
   const course = map.routes[0]
 
   return Promise.all([
-    unlessFetched(homePage, () => fetchPage(dispatch)('home', process.env.PRISMIC_HOME_ID)),
+    unlessFetched(homePage, () => fetchPage(dispatch)('home')),
     unlessFetched(course, () => fetchRoute(0, course.waypoints)(dispatch)),
     fetchTeams(dispatch)(process.env.CAMPAIGN_UID, process.env.FILTER_TEAMS.split(',')),
     fetchIndividuals(dispatch)(process.env.CAMPAIGN_UID)
